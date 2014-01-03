@@ -1,22 +1,33 @@
-# CodeIgniter Helper: Address geocoder
+# CodeIgniter Helper: Geo Tools
 
-**ci-geocoder**
+**ci-geotools**
 
 ## About this helper
 
-This CodeIgniter's helper is used to retrieve latitude and longitude of a custom address. The information is retrieved from Google Maps.  
+This CodeIgniter's helper is used to retrieve latitude and longitude of a custom address, and also to retrieve distance and duration information between two addresses. The information is retrieved from Google Maps.  
   
 Its usage is recommended for CodeIgniter 2 or greater.  
 
 ## Usage
 
 ```php
-$this->load->helper('geocoder');
+$this->load->helper('geotools');
 
-$georesult = Geocoder('Boston, Massachusetts, United States');
+/*****/
 
-$lat  = $georesult->lat;
-$long = $georesult->long;
+$geocode = Geocoder('Boston, Massachusetts, United States');
+
+$lat  = $geocode->lat;
+$long = $geocode->long;
+
+/*****/
+
+$geodistance = Geodistance('Boston, MA', 'New York, NY');
+
+$distance_text  = $geodistance->distance_text;
+$distance_value = $geodistance->distance_value;
+$duration_text  = $geodistance->duration_text;
+$duration_value = $geodistance->duration_value;
 ```
 
 ![Ale Mohamad](http://alemohamad.com/github/logo2012am.png)
